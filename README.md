@@ -1,15 +1,14 @@
 1. Session - 1
-    - html
+    - html //sam
         - doc structure
         - semnatic html
-    - css
+    - css //sam
         - variables
         - positioning
         - flex
         - structuring (modularity)
 
-
-    - js
+    - js //beleswar
         - basics
         - arrow functions
         - functional programming - map, filter
@@ -20,7 +19,7 @@
     - about the sessions: schedule
 
 2. Session - 2
-    - React
+    - React //sam
         - setup, vite
         - folder structure explanations
         - jsx
@@ -38,7 +37,7 @@
 
 3. Session - 3
     - API introduction
-    - Flask
+    - Flask //beleswar
         - file structure with modularity
         - .env files
         - endpoints (dynamic endpoints)
@@ -58,26 +57,26 @@
 
 4. Session - 4
     - Trivia App
-        - frontend
+        - frontend //samridh
             - make a simple page which can display questions
             - form to add questions
-        - backend
+        - backend //beleswar
             - question model creation
             - add question end point
             - send question end point
             - validation question
-        - frontend
+        - frontend //samridh
             - form request to backend for adding question
             - verify that questions are added to db (view db in backend)
             - Display question - fetch from backend
             - Answer button
 
 5. Session - 5
-    - Deployment
+    - Deployment //beleswar
         - frontend on github pages
         - backend on digitalocean
         - db on digitalocean
-    - Future Works
+    - Future Works //samridh
         - authentication
             - jwt tokens
             - cookies
