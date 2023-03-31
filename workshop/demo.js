@@ -30,6 +30,24 @@ const user = { username: 'Samridh', age: 20 };
 console.log(user.username + ' is ' + user.age + ' years old!');
 console.log(`${user.username} is ${user.age} years old!!!`);
 
+// short-circuiting of logical operators
+const f1 = () => {
+    console.log('f1 ran!');
+    return true;
+};
+
+const f2 = () => {
+    console.log('f2 ran!');
+    return false;
+};
+
+f1() && f2();
+
+f1() || f2();
+
+// ternary operator
+const max = (x, y) => (x > y ? x : y);
+
 // shortcuts while making objects
 
 const x = 100;
