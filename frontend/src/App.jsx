@@ -1,40 +1,43 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import NameCard from './components/NameCard';
 
 function App() {
-    const [count, setCount] = useState(0);
-
+    const [count, setCount] = useState(0); // useState is a 'hook'
+    const people = [
+        { id: 10, name: 'Samridh', age: 20 },
+        { id: 11, name: 'Beleswar', age: 20 },
+        { id: 12, name: 'Frodo', age: 80 }
+    ];
     return (
-        <div className='App'>
-            <div>
-                <a href='https://vitejs.dev' target='_blank'>
-                    <img src={viteLogo} className='logo' alt='Vite logo' />
-                </a>
-                <a href='https://reactjs.org' target='_blank'>
-                    <img
-                        src={reactLogo}
-                        className='logo react'
-                        alt='React logo'
+        <div id='abc' className='abcabc'>
+            {people
+                .filter(({ age }) => age < 50)
+                .map(({ id, name, age }) => (
+                    <NameCard
+                        key={id} /* needs to be unique */
+                        name={name}
+                        age={age}
                     />
-                </a>
-            </div>
-            <h1>LUG VITC ROCKS!!!</h1>
-            <div className='card'>
-                <button onClick={() => setCount(count => count + 1)}>
-                    count is {count}
-                </button>
-                <p>
-                    Edit <code>src/App.jsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className='read-the-docs'>
-                Click on the Vite and React logos to learn more
-            </p>
+                ))}
+            count: {count}
+            <br />
+            <button onClick={() => setCount(count + 1)}> increment!</button>
+            <br />
+            <button onClick={() => setCount(count - 1)}> decrement!</button>
         </div>
     );
 }
 
 export default App;
+
+/*
+
+component:
+useState = use the 'count' variable from outside this compnent
+setCount = change the external value; and rerun the component after changing it
+.
+
+react code:
+count
+*/
 

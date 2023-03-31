@@ -46,7 +46,13 @@ f1() && f2();
 f1() || f2();
 
 // ternary operator
+function max1(x, y) {
+    if (x > y) return x;
+    else return y;
+}
 const max = (x, y) => (x > y ? x : y);
+
+// expression ? true_value : false_value
 
 // shortcuts while making objects
 
@@ -70,7 +76,7 @@ console.log({ first, second, third });
 
 // asynchronous code
 
-// callbacks
+// callbacks: old way
 
 function getName1(callback) {
     const name = prompt('What is your name?');
@@ -80,6 +86,8 @@ function getName1(callback) {
 // getName1(name => console.log(name));
 
 // promises
+// f().then(...).then(...).then(...)
+// f(..., f2(..., f3(...)))
 
 function getName2() {
     return new Promise((resolve, reject) => {

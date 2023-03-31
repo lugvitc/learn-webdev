@@ -65,11 +65,21 @@
 
 ## How React Works
 
+-   render on state change
+-   virtual dom
+
 ## No, that is not HTML!
+
+-   it is jsx!
+-   a special syntax to write html-like markup inside js
 
 ## JSX Variables
 
+-   inside curly braced
+
 ## Conditional Rendering
+
+-   &&, || and ?:
 
 ## Mapping Lists
 
