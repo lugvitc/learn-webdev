@@ -1,0 +1,22 @@
+:root {
+    --sam-green: green;
+}
+h1 {
+    color: var(--sam-green);
+    background-color: blue;
+}
+#abc1 {
+    color: green;
+    background-color: yellow !important;
+}
+.abc {
+    color: maroon;
+    background-color: gray;
+}
+div {
+    background-color: red;
+}
+div,
+span {
+    background-color: aqua;
+}
