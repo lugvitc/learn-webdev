@@ -1,10 +1,12 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, Response, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 api = Flask(__name__)
 api.secret_key = "mySecretKey"
 api.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///counter.db"
 
+CORS(api)
 db = SQLAlchemy(api)
 # create database
 
@@ -38,20 +40,31 @@ def view():
     print(ctr[0].currentCount)
     return "Hey, the current value in your database is: " + str(ctr[0].currentCount)
 
-@api.route('/increment-count')
+@api.route('/get-counter')
+def getCounter():
+    ctr = Counter.query.filter_by(identifier=123).all()
+    result = {"counter": ctr[0].currentCount}
+    return jsonify(result)
+
+@api.route('/increment-counter', methods=['POST'])
 def increment():
-    ctr = Counter.query.filter_by(identifier=123).all()
-    ctr[0].currentCount = ctr[0].currentCount + 1
-    db.session.commit()
-    return "Okay, your count value is incremented"
+    try:
+        ctr = Counter.query.filter_by(identifier=123).all()
+        ctr[0].currentCount = ctr[0].currentCount + 1
+        db.session.commit()
+        return Response(status=201)
+    except:
+        return Response(status=400)
 
-@api.route('/decrement-count')
+@api.route('/decrement-counter', methods=['POST'])
 def decrement():
-    ctr = Counter.query.filter_by(identifier=123).all()
-    ctr[0].currentCount = ctr[0].currentCount - 1
-    db.session.commit()
-    return "Okay, your count value is decremented"
-
+    try:
+        ctr = Counter.query.filter_by(identifier=123).all()
+        ctr[0].currentCount = ctr[0].currentCount - 1
+        db.session.commit()
+        return Response(status=201)
+    except:
+        return Response(status=400)
 
 @api.route('/')
 @api.route('/home')
